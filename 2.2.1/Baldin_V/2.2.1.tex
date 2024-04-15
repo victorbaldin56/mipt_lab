@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{siunitx} % Required for alignment
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{float}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=magenta,
+    }
+\graphicspath{{pictures/}}
+
+
+\title{\begin{center}Лабораторная работа №2.2.1\end{center} Исследование взаимной
+диффузии газов} \author{Балдин Виктор
+Б01-303} \date{\today}
+
+\begin{document}
+\maketitle
+
+\textbf{Цель работы:} 1) регистрация зависимости концентрации гелия в воздухе
+от времени при помощи датчиков теплопроводности при разных начальных давлениях
+смеси газов;
+2) определение коэффициента диффузии по данным измерений.
+
+\textbf{В работе используются:} измерительная установка;
+форвакуумный насос; баллон с газом (гелий); манометр; источник
+питания; магазин сопротивлений; гальванометр; секундомер.
+
+\section{Теоретическая часть}
+\paragraph*{Взаимная диффузия газов}
+Суммарное количество молекул в 2-х сосудах, разделенных перегородкой:
+\begin{equation}
+    N_1 + N_2 = V_1n_1 + V_2n_2 = const,
+    \label{Neq}
+\end{equation}
+где $n_1$, $n_2$ -- концентрации.
+Продифференцируем \ref{Neq} и в квазистационарном приближении запишем закон Фика:
+\begin{equation}
+    V_1dn_1 = -V_2dn_2 = Jdt = -DS\frac{n_1 - n_2}{l}dt,
+    \label{fick}
+\end{equation}
+где $l$ -- длина трубки, $D$ -- коэффициент диффузии, $S$ -- площадь сечения.
+Из системы \ref{fick}:
+\begin{equation}
+    \frac{dn_1}{dt} - \frac{dn_2}{dt} = -\frac{n_1 - n_2}{l}DS\left(\frac{1}{V_1}
+        + \frac{1}{V_2}\right)
+    \label{diffeq}
+\end{equation}
+Введя новую переменную $\Delta n = n_1 - n_2$ и проинтегрировав \ref{diffeq}, получим:
+\begin{equation}
+    \Delta n = \Delta n_0 e^{-t/\tau}
+\end{equation}
+Из начальных условий:
+\begin{equation}
+    \tau = \frac{V_1V_2}{V_1 + V_2}\frac{l}{SD},
+\end{equation}
+или
+\begin{equation}
+    D = \frac{S\tau}{l}\frac{V_1 + V_2}{V_1V_2}
+\end{equation}
+
+\paragraph*{Экспериментальная установка}
+Для измерения $\Delta n$ применяется мостовая схема с термопарой (рис. \ref{schem}).
+\begin{figure}
+    \centering
+    \includegraphics{stand.png}
+    \caption{Мостовая схема с термопарой}
+    \label{schem}
+\end{figure}
+
+Показания термопары пропорциональны $\Delta n$, а значит подчиняются закону
+\begin{equation}
+    \ln U = \ln U_0 - \frac{t}{\tau}
+\end{equation}
+
+\section{Ход работы}
+\begin{enumerate}
+    \item Откачаем воздух из установки, запустим гелий до рабочего давления.
+    \item Сбалансируем мост.
+    \item Откроем кран К3.
+    \item Начнем измерения процесса диффузии.
+    \item Повторим действия пп. 1-4 для 4-х значений рабочего давления.
+    \item Получим графики зависимости $U(t)$ и $\ln U(t)$.
+\end{enumerate}
+
+\section{Обсуждение результатов}
+
+\end{document}
