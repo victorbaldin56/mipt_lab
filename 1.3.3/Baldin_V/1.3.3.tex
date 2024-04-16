@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{siunitx} % Required for alignment
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{float}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=magenta,
+    }
+\graphicspath{{pictures/}}
+
+
+\title{\begin{center}Лабораторная работа №1.3.3\end{center}
+Определение вязкости воздуха по скорости течения через тонкие трубки}
+\author{Балдин Виктор Б01-303}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\paragraph*{\textbf{Цель работы:}} экспериментально исследовать свойства течения газов по тонким трубкам при
+различных числах Рейнольдса; выявить область применимости закона Пуазейля и с его помощью
+определить коэффициент вязкости воздуха.
+\paragraph*{\textbf{В работе используются:}} система подачи воздуха (компрессор, поводящие трубки); газовый
+счетчик барабанного типа; спиртовой микроманометр с регулируемым наклоном; набор трубок
+различного диаметра с выходами для подсоединения микроманометра; секундомер.
+
+\section{Теоретическая часть}
+	Характер движения газа по трубке определяется числом Рейнольдса:
+	\begin{equation}
+		Re = \frac{u r \rho}{\eta},
+		\label{eq:Re}
+	\end{equation}
+	где $u$ - скорость потока, $r$ - радиус трубки, $\rho$ - плотность жидкости, $\eta$ - вязкость. Переход от ламинарного движения к турбулентному: $Re \sim 1000$.
+
+	Для ламинарного течения при постоянном удельном объеме верна формула Пуазейля:
+	\begin{equation}
+		Q_V = \frac{\pi r^4}{8 l \eta}(P_1 - P_2),
+		\label{eq:Pu}
+	\end{equation}
+	где $P_1 - P_2$ - разность давлений в двух сечениях, расстояние между которыми - $l$. Формула позволяет определить вязкость по расходу $Q_V$.
+
+	Ламинарное течение газа устанавливается на расстоянии
+	\begin{equation}
+		a \sim 0.2 r \cdot Re.
+		\label{eq:Aa}
+	\end{equation}
+	Градиент давления на участке с турбулентным течением больше, чем на участке с ламинарным, что позволяет разделить их экспериментально.
+
+\section{Ход работы}
+\begin{enumerate}
+    \item Используем 2 трубки, диаметры и оптимальные расстояния, вычисленные по формуле \ref{eq:Aa},
+    представлены в таблице \ref{tab:trub}.
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|}
+        \toprule
+        № трубки & $d$, мм & $a$, мм\\
+        \midrule
+        1    & $5.25 \pm 0.05$ & $525 \pm 5$\\
+        2    & $3.90 \pm 0.05$ & $390 \pm 5$\\
+        \bottomrule
+        \end{tabular}
+        \caption{Используемые трубки}
+        \label{tab:trub}
+    \end{table}
+
+    \item Установим вывод манометра на оптимальном расстоянии от начала трубок и проведем
+    измерения зависимости $\Delta P(Q)$. Множитель манометра установим $k = 0.2$. Для трубки
+    №1 результаты представлены в таблице \ref{tab:wide}, для трубки №2 -- в таблице \ref{tab:thin}.
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|r|r|r|}
+        \toprule
+          $P$, мм &    $t$, c &     $Q$, см$^3$/c \\
+        \midrule
+         21 & 25.0 &  40.0 \\
+         38 & 16.0 &  62.5 \\
+         54 & 12.0 &  83.3 \\
+         86 &  8.2 & 122.0 \\
+        100 &  7.5 & 133.3 \\
+         30 & 19.4 &  51.5 \\
+         45 & 14.0 &  71.4 \\
+         61 & 10.9 &  91.7 \\
+         70 &  9.7 & 103.1 \\
+         74 &  9.2 & 108.7 \\
+         77 &  8.9 & 112.4 \\
+        \bottomrule
+        \end{tabular}
+        \caption{$\Delta P(Q)$ для трубки №1}
+        \label{tab:wide}
+        \end{table}
+
+        \begin{table}[h!]
+        \centering
+        \begin{tabular}{|r|r|r|}
+        \toprule
+          $P$, мм &    $t$, c &     $Q$, см$^3$/c \\
+        \midrule
+         19 & 48.5 &  20.6 \\
+         30 & 33.0 &  30.3 \\
+         40 & 25.0 &  40.0 \\
+         50 & 20.6 &  48.5 \\
+         60 & 18.1 &  55.2 \\
+         70 & 16.0 &  62.5 \\
+         80 & 14.0 &  71.4 \\
+         91 & 12.6 &  79.4 \\
+        100 & 11.7 &  85.5 \\
+        110 & 11.0 &  90.9 \\
+        106 & 11.2 &  89.3 \\
+        126 & 10.1 &  99.0 \\
+        140 &  9.6 & 104.2 \\
+        \bottomrule
+        \end{tabular}
+        \caption{$\Delta P(Q)$ для трубки №2}
+        \label{tab:thin}
+        \end{table}
+
+    \item Выделим линейные участки зависимости и построим на них наилучшие прямые,
+    проходящие через 0, по МНК.
+\end{enumerate}
+
+\end{document}
